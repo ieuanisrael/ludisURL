@@ -37,6 +37,7 @@ read_ludis_csv <- function(url, headers) {
 #' @returns a dataframe `df`
 #' @export
 list_ludis_datasets <- function(url, headers) {
+  url <- gsub("ludisurl","listfiles", url)
   res <- httr::GET(url = url, httr::add_headers(.headers=headers))
   df <- jsonlite::fromJSON(rawToChar(res$content))
 
