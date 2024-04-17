@@ -9,7 +9,7 @@ write_ludis_csv(url, headers)
 \arguments{
 \item{url}{url corresponding to datasets s3 location}
 
-\item{headers}{headers containing a ludis api token}
+\item{headers}{headers containing a ludis api tokenfdsfdsa}
 }
 \value{
 return a httr::PUT reponse object
