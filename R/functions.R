@@ -38,7 +38,7 @@ read_ludis_csv <- function(url, headers) {
 #' @export
 list_ludis_datasets <- function(url, headers) {
   res <- httr::GET(url = url, httr::add_headers(.headers=headers))
-  df <- fromJSON(rawToChar(res$content))
+  df <- jsonlite::fromJSON(rawToChar(res$content))
 
   return(df$listS3FolderContents$Contents)
 }
