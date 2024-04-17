@@ -1,17 +1,17 @@
 #' Add together two numbers
 #'
 #' @param url url corresponding to datasets s3 location
-#' @param headers headers containing a ludis api token
+#' @param headers headers containing a ludis api tokenfdsfdsa
 #' @returns return a httr::PUT reponse object
 #' @export
 write_ludis_csv <- function(url, headers) {
   csv_data <- capture.output(write.csv(data_frame, row.names = F))
-  
+
   response <- httr::PUT(url = url,
                         httr::add_headers(.headers=headers))
-  
+
   response <- httr::PUT(url = response$url,body = csv_data)
-  
+
   return(response)
 }
 
@@ -23,9 +23,9 @@ write_ludis_csv <- function(url, headers) {
 #' @export
 read_ludis_csv <- function(url, headers) {
   res <- httr::GET(url = url, httr::add_headers(.headers=headers))
-  
+
   df <- readr::read_csv(rawToChar(res$content))
-  
+
   return(df)
 }
 
@@ -38,6 +38,6 @@ read_ludis_csv <- function(url, headers) {
 list_ludis_datasets <- function(url, headers) {
   res <- httr::GET(url = url, httr::add_headers(.headers=headers))
   df <- fromJSON(rawToChar(res$content))
-  
+
   return(df$listS3FolderContents$Contents)
 }
