@@ -4,12 +4,14 @@
 \alias{write_ludis_csv}
 \title{Add together two numbers}
 \usage{
-write_ludis_csv(url, headers)
+write_ludis_csv(data_frame, url, headers)
 }
 \arguments{
+\item{data_frame}{the dataframe to be written to ludis dataset}
+
 \item{url}{url corresponding to datasets s3 location}
 
-\item{headers}{headers containing a ludis api tokenfdsfdsa}
+\item{headers}{headers containing a ludis api token}
 }
 \value{
 return a httr::PUT reponse object
